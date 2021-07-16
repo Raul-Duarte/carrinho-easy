@@ -1,10 +1,12 @@
 import React from "react";
+import {useSelector} from 'react-redux'
 import {Cart, Container} from "./styles";
 import {MdShoppingBasket} from 'react-icons/md'
 import logo from "../../assets/images/logo.svg";
 import {Link} from "react-router-dom";
 
 export default function Header() {
+    const {product} = useSelector(state => state.cart)
     return (
         <Container>
             <Link to="/">
@@ -14,7 +16,7 @@ export default function Header() {
             <Cart to="/cart">
                 <div>
                     <strong>Meu Carrinho</strong>
-                    <span>3 itens</span>
+                    <span>{product.length} itens</span>
                 </div>
                 <MdShoppingBasket size={36} color="#FFF"/>
             </Cart>
