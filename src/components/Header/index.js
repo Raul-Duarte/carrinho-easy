@@ -6,7 +6,9 @@ import logo from "../../assets/images/logo.svg";
 import {Link} from "react-router-dom";
 
 export default function Header() {
+
     const {product} = useSelector(state => state.cart)
+
     return (
         <Container>
             <Link to="/">

@@ -1,8 +1,12 @@
 import React from "react";
 import {Container, ProductTable, Total} from "./styles";
 import {MdRemoveCircleOutline, MdAddCircleOutline, MdDelete} from 'react-icons/md'
+import {useSelector} from "react-redux";
 
 export default function Cart() {
+
+    const {product} = useSelector(state => state.cart)
+    console.log(product)
     return (
         <Container>
             <ProductTable>
@@ -16,38 +20,41 @@ export default function Cart() {
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>
-                        <img
-                            src=" https://static.netshoes.com.br/produtos/tenis-olympikus-attract-se-815-masculino/26/D22-3836-026/D22-3836-026_zoom1.jpg?ts=1585920125&ims=326x"
-                            alt="tenis"
-                        />
-                    </td>
-                    <td>
-                        <strong>Tênis muinto massa</strong>
-                        <span>R$129,90</span>
-                    </td>
-                    <td>
-                        <div>
+                {product.map(product => (
+                    <tr key={product.product.id}>
+                        <td>
+                            <img
+                                src={product.product.image}
+                                alt={product.product.title}
+
+                            />
+                        </td>
+                        <td>
+                            <strong>{product.product.title}</strong>
+                            <span>R${product.product.price}</span>
+                        </td>
+                        <td>
+                            <div>
+                                <button type='button'>
+                                    <MdRemoveCircleOutline size={20} color='#7159c1'/>
+                                </button>
+                                <input type="number" readOnly value={product.quantity}/>
+                                <button type='button'>
+                                    <MdAddCircleOutline size={20} color='#7159c1'/>
+                                </button>
+                            </div>
+                        </td>
+                        <td>
+                            <span>TOTAL</span>
+                            <strong>R$258,80</strong>
+                        </td>
+                        <td>
                             <button type='button'>
-                                <MdRemoveCircleOutline size={20} color='#7159c1'/>
+                                <MdDelete size={20} color='#9519c1'/>
                             </button>
-                            <input type="nummber" value={2}/>
-                            <button type='button'>
-                                <MdAddCircleOutline size={20} color='#7159c1'/>
-                            </button>
-                        </div>
-                    </td>
-                    <td>
-                        <span>TOTAL</span>
-                        <strong>R$258,80</strong>
-                    </td>
-                    <td>
-                        <button type='button'>
-                            <MdDelete size={20} color='#9519c1'/>
-                        </button>
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
+                ))}
                 </tbody>
 
             </ProductTable>
