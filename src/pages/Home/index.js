@@ -15,6 +15,7 @@ export default function Home() {
             const response = await api.get('products')
             setProducts(response.data)
         }
+
         loadPorduct()
     }, [])
 
@@ -28,8 +29,8 @@ export default function Home() {
                         src={product.image}
                         alt={product.title}
                     />
-                    <strong>{product.title}l</strong>
-                    <span>{product.price}</span>
+                    <strong>{product.title}</strong>
+                    <span>R$ {product.price}</span>
                     <button type="button" onClick={() => handleAddProduct(product)}>
                         <div>
                             <MdAddShoppingCart size={16} color="#FFF"/>

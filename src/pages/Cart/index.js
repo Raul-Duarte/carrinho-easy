@@ -7,14 +7,18 @@ import {removeFromCart, updateAmount} from "../../store/modules/cart/actions";
 export default function Cart() {
 
     const {product} = useSelector(state => state.cart)
+
     const dispatch = useDispatch();
+
     const handleRemoveProduct = (id) => dispatch(removeFromCart(id))
+
     const increment = (product, quantity) => {
         dispatch(updateAmount(product.id, quantity + 1))
     }
     const decrement = (product, quantity) => {
         dispatch(updateAmount(product.id, quantity - 1))
     }
+
     return (
         <Container>
             <ProductTable>
@@ -54,7 +58,7 @@ export default function Cart() {
                         </td>
                         <td>
                             <span>TOTAL</span>
-                            <strong>R$258,80</strong>
+                            <strong>R$ {(product.subtotal).toFixed(2)}</strong>
                         </td>
                         <td>
                             <button type='button' onClick={() => handleRemoveProduct(product.product.id)}>
