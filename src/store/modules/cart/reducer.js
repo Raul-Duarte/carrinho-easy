@@ -47,9 +47,13 @@ export default function cart(state = INITIAL_STATE, action) {
             return produce(state, draft => {
                 const productIndex = draft.product.findIndex(item => item.product.id === action.payload.id)
                 if (productIndex >= 0) {
+                    if (draft.product[productIndex].quantity > action.payload.quantity) {
+                        draft.total = draft.total - draft.product[productIndex].product.price
+                    } else {
+                        draft.total = draft.total + draft.product[productIndex].product.price
+                    }
                     draft.product[productIndex].quantity = action.payload.quantity;
                     draft.product[productIndex].subtotal = draft.product[productIndex].product.price * draft.product[productIndex].quantity
-                    draft.total = draft.total + draft.product[productIndex].product.price
                 }
 
             })
