@@ -15,7 +15,7 @@ export default function Header() {
                 <img src={logo} alt="logo"/>
             </Link>
 
-            <Cart to="/cart">
+            <Cart to="/carrinho">
                 <div>
                     <strong>Meu Carrinho</strong>
                     <span>{product.length} itens</span>
