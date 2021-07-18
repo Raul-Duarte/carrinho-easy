@@ -1,5 +1,5 @@
 import produce from 'immer'
-
+import { toast } from 'react-toastify';
 const INITIAL_STATE = {
     product: [],
     total: 0
@@ -19,6 +19,7 @@ export default function cart(state = INITIAL_STATE, action) {
                         quantity: 1,
                         subtotal: product.price
                     })
+                    toast.success('Produto adicionado ao carrinho')
                 }
 
             })
@@ -30,6 +31,7 @@ export default function cart(state = INITIAL_STATE, action) {
 
                 if (productIndex >= 0) {
                     draft.product.splice(productIndex, 1)
+                    toast.error('Você removeu o produto do carrinho')
                 }
             })
 
