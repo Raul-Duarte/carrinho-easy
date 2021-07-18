@@ -1,7 +1,9 @@
 import produce from 'immer'
-import { toast } from 'react-toastify';
+import {toast} from 'react-toastify';
+
 const INITIAL_STATE = {
     product: [],
+    total: 0,
 }
 export default function cart(state = INITIAL_STATE, action) {
     switch (action.type) {
@@ -17,7 +19,6 @@ export default function cart(state = INITIAL_STATE, action) {
                         product,
                         quantity: 1,
                         subtotal: product.price,
-                        total: 0
                     })
                     toast.success('Produto adicionado ao carrinho')
                 }
@@ -44,7 +45,9 @@ export default function cart(state = INITIAL_STATE, action) {
                 if (productIndex >= 0) {
                     draft.product[productIndex].quantity = action.payload.quantity;
                     draft.product[productIndex].subtotal = draft.product[productIndex].product.price * draft.product[productIndex].quantity
+                    // draft.total += draft.product[productIndex].product.price * draft.product[productIndex].quantity
                 }
+
             })
         }
         default:

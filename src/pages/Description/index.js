@@ -1,11 +1,21 @@
 import React from 'react';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Container, DivDois, DivUm} from "./styles";
 import {MdAddShoppingCart} from "react-icons/md";
+import {addToCart} from "../../store/modules/cart/actions";
+import {useHistory} from 'react-router-dom'
 
 export default function Description() {
 
     const {product} = useSelector(state => state.description)
+
+    const dispatch = useDispatch();
+    const history = useHistory()
+
+    const handleAddProduct = (product) => {
+        dispatch(addToCart(product))
+        history.push('/')
+    }
 
     return (
         <Container>
@@ -19,7 +29,7 @@ export default function Description() {
                     <span>R$ {product.product.price}</span>
                     <label>Calcular frete: </label>
                     <input type="text" placeholder="CEP"/>
-                    <button type="button" onClick={() => console.log(product)}>
+                    <button type="button" onClick={() => handleAddProduct(product.product)}>
                         <div>
                             <MdAddShoppingCart size={16} color="#FFF"/>
                         </div>

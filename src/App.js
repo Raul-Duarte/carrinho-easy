@@ -17,7 +17,7 @@ export default function App() {
                 <GlobalStyles/>
                 <Header/>
                 <Routes/>
-                <ToastContainer autoClose={3000}/>
+                <ToastContainer autoClose={2000}/>
             </BrowserRouter>
         </Provider>
     )

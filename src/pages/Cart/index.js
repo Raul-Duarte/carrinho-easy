@@ -7,7 +7,8 @@ import {removeFromCart, updateAmount} from "../../store/modules/cart/actions";
 export default function Cart() {
 
     const {product} = useSelector(state => state.cart)
-    console.log(product)
+    const cart = useSelector(state => state.cart)
+
 
     const dispatch = useDispatch();
 
@@ -76,7 +77,7 @@ export default function Cart() {
                     <button type="button">Finalizar pedido</button>
                     <Total>
                         <span>Total</span>
-                        <strong>R$ 1920,28</strong>
+                        <strong>R$ {(cart.total).toFixed(2)}</strong>
                     </Total>
                 </footer>
             </Container>
@@ -84,7 +85,8 @@ export default function Cart() {
     } else {
         return (
             <Container>
-                <h1> Você não adicionou nada no seu carrinho
+                <h1>
+                    Você não adicionou nada no seu carrinho
                     :(
                 </h1>
             </Container>
