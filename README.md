@@ -8,7 +8,7 @@ $ git clone https://github.com/Raul-Duarte/carrinho-easy.git
 ```
 https://github.com/Raul-Duarte/carrinho-easy.git
 
-Install dependencies. Make sure you already have [`nodejs`](https://nodejs.org/en/) & [`npm`](https://www.npmjs.com/) installed in your system.
+Install dependencies. Make sure you already have [`nodejs`](https://nodejs.org/en/), [`npm`](https://www.npmjs.com/) & [`json-server`](https://www.npmjs.com/package/json-server) installed in your system.
 
 ```bash
 $ cd carrinho-easy
