@@ -17,7 +17,7 @@ export const Container = styled.div`
     align-items: center;
     transition: background 0.2s;
     width: 50%;
-    align-self: center;
+    align-self: flex-end;
 
     &:hover {
       background: ${darken(0.03, '#7159c1')};
@@ -53,45 +53,52 @@ export const DivUm = styled.div`
   width: 500px;
 
   img {
-    height: 400px;
-    width: 400px;
+    height: 300px;
+    width: 300px;
   }
-  p{
-    margin-top: 10px;
-  }
-  h4{
-    margin-top: 20px;
-  }
-  
-
 `;
 
 export const DivDois = styled.div`
   display: flex;
   flex-direction: column;
- div{
-   align-items: center;
-  span{
-    
-  font-size: 24px;
-    //font-weight: bold;
+
+  p {
+    margin-top: 10px;
   }
-   p{
-     font-size: 20px;
-     margin-right: 10px;
-   }
- } 
+  
+  h3{
+    font-size: 24px;
+  }
 
-  > div {
+  h4 {
+    margin-top: 20px;
+  }
+  div {
+    align-items: center;
 
+    span {
+
+      font-size: 24px;
+      //font-weight: bold;
+    }
+
+    p {
+      font-size: 20px;
+      margin-right: 10px;
+    }
+  }
+
+  div {
+    align-self: flex-end;
     input {
-      flex: 1;
+      //flex: 1;
       display: flex;
       border: 1px solid #DDD;
       border-radius: 4px;
       color: #666;
       padding: 6px;
       margin-left: 10px;
+      width: 50%;
     }
 
     label {
@@ -101,7 +108,6 @@ export const DivDois = styled.div`
       margin-top: 10px;
     }
   }
-
 `;
 
 

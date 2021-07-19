@@ -14,7 +14,7 @@ export default function Description() {
 
     const handleAddProduct = (product) => {
         dispatch(addToCart(product))
-        history.push('/carrinho')
+        history.push('/')
     }
 
     return (
@@ -22,15 +22,14 @@ export default function Description() {
             <div key={product.product.id}>
                 <DivUm>
                     <img src={product.product.image} alt={product.product.title}/>
-                    <h4>Informações do produto</h4>
-                    <p>{product.product.description}</p>
                 </DivUm>
                 <DivDois>
                     <h1>{product.product.title}</h1>
-                    <div>
-                        <p>Por: </p>
-                    <span>R$ {product.product.price}</span>
-                    </div>
+                    <h4>Informações do produto</h4>
+                    <p>{product.product.description}</p>
+                        <h4>Por: </h4>
+                        <h3>R$ {product.product.price}</h3>
+
                     <div>
                         <label>Calcular frete: </label>
                         <input type="text" placeholder="CEP"/>
