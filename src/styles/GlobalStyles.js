@@ -1,4 +1,6 @@
 import {createGlobalStyle} from "styled-components"
+import 'react-toastify/dist/ReactToastify.css';
+import background from '../assets/images/back.jpg'
 
 export default createGlobalStyle`
 *{
@@ -8,7 +10,7 @@ export default createGlobalStyle`
   box-sizing: border-box;
 }
 body{
-  background: #191919;
+  background-image: url(${background});
   -webkit-font-smoothing: antialiased;
 }
 
