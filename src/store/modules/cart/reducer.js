@@ -16,6 +16,7 @@ export default function cart(state = INITIAL_STATE, action) {
                     draft.product[productIndex].quantity++;
                     draft.product[productIndex].subtotal = draft.product[productIndex].product.price * draft.product[productIndex].quantity
                     draft.total = Number(draft.total + draft.product[productIndex].product.price)
+                    toast.success('Produto adicionado ao carrinho')
                 } else {
                     draft.product.push({
                         product,

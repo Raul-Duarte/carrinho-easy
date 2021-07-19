@@ -14,21 +14,27 @@ export default function Description() {
 
     const handleAddProduct = (product) => {
         dispatch(addToCart(product))
-        history.push('/')
+        history.push('/carrinho')
     }
 
     return (
         <Container>
             <div key={product.product.id}>
                 <DivUm>
-                    <img src={product.product.image} alt=""/>
-                    <h3>{product.product.description}</h3>
+                    <img src={product.product.image} alt={product.product.title}/>
+                    <h4>Informações do produto</h4>
+                    <p>{product.product.description}</p>
                 </DivUm>
                 <DivDois>
                     <h1>{product.product.title}</h1>
+                    <div>
+                        <p>Por: </p>
                     <span>R$ {product.product.price}</span>
-                    <label>Calcular frete: </label>
-                    <input type="text" placeholder="CEP"/>
+                    </div>
+                    <div>
+                        <label>Calcular frete: </label>
+                        <input type="text" placeholder="CEP"/>
+                    </div>
                     <button type="button" onClick={() => handleAddProduct(product.product)}>
                         <div>
                             <MdAddShoppingCart size={16} color="#FFF"/>

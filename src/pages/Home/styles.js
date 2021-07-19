@@ -17,6 +17,12 @@ export const ProductList = styled.ul`
     img {
       align-self: center;
       max-width: 250px;
+      cursor: pointer;
+      position: relative;
+    }
+    img:hover{
+      top:-4px;
+      -webkit-transform: scale(1.1);
     }
 
     > strong {

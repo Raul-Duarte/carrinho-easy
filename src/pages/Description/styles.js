@@ -16,6 +16,8 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     transition: background 0.2s;
+    width: 50%;
+    align-self: center;
 
     &:hover {
       background: ${darken(0.03, '#7159c1')};
@@ -49,16 +51,57 @@ export const DivUm = styled.div`
   display: flex;
   flex-direction: column;
   width: 500px;
-  img{
+
+  img {
     height: 400px;
     width: 400px;
   }
+  p{
+    margin-top: 10px;
+  }
+  h4{
+    margin-top: 20px;
+  }
+  
 
 `;
 
 export const DivDois = styled.div`
   display: flex;
   flex-direction: column;
+ div{
+   align-items: center;
+  span{
+    
+  font-size: 24px;
+    //font-weight: bold;
+  }
+   p{
+     font-size: 20px;
+     margin-right: 10px;
+   }
+ } 
+
+  > div {
+
+    input {
+      flex: 1;
+      display: flex;
+      border: 1px solid #DDD;
+      border-radius: 4px;
+      color: #666;
+      padding: 6px;
+      margin-left: 10px;
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: bold;
+      padding-bottom: 5px;
+      margin-top: 10px;
+    }
+  }
+
 `;
 
 
